@@ -44,11 +44,6 @@ export const getSingleEmployee = (Id) => {
 //     });
 // }
 
-export const closeServiceTicket = (id) => {
-  return fetch(`/api/servicetickets/${id}/complete`)
-  .then((r) => r.json())
-
-}
 
 export const deleteSingleTicket = (id) => new Promise((resolve, reject) => {
   fetch(`/api/serviceTickets/${id}`, {
@@ -57,8 +52,19 @@ export const deleteSingleTicket = (id) => new Promise((resolve, reject) => {
       'Content-Type': 'application/json',
     },
   })
-    .then((data) => resolve(data))
-    .catch(reject);
+  .then((data) => resolve(data))
+  .catch(reject);
 });
 
+export const closeServiceTicket = (id) => new Promise((resolve, reject) => {
+  return fetch(`/api/servicetickets/${id}/complete`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    }, 
+  })
+  .then((data) => resolve(data))
+  .catch(reject);
+
+})
 //export a function here that gets a ticket by id

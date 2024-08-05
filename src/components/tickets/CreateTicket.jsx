@@ -89,7 +89,6 @@ export default function CreateTicket() {
           name="employeeId"
           onChange={handleChange}
           value={formInput.employeeId}
-          required
         >
           <option value="" hidden>
             Assaign an Employee

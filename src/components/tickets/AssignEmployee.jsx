@@ -25,7 +25,7 @@ export default function AssignEmployee() {
   return (
     <div>
     {employees.map((employee) => (
-      <>
+      <div key={employee.id}>
       <br />
       <Table >
         <tbody>
@@ -38,7 +38,7 @@ export default function AssignEmployee() {
             <td>
             </td>
           </tr>
-          <tr key={employee.id}>
+          <tr>
             <th scope='row'>Name</th>
             <td>{employee.name}</td>
           </tr>
@@ -49,7 +49,7 @@ export default function AssignEmployee() {
         </tbody>
       </Table>
       <br />
-      </>
+      </div>
     ))}
     </div>
   )

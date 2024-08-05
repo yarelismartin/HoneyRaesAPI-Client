@@ -7,16 +7,17 @@ export default function TicketsList() {
   const [tickets, setTickets] = useState([]);
   
   const handleClick = (id) => {
+    if(window.confirm(`Are you sure you want to delete service ticket ${id}?`)) {
     deleteSingleTicket(id).then(() => {
       getServiceTickets().then(setTickets);
     })
+  }
   };
 
   const handleUpdate = (id) => {
-    closeServiceTicket(id).then(() => {
-      getServiceTickets().then(setTickets);
-    });
-
+      closeServiceTicket(id).then(() => {
+        getServiceTickets().then(setTickets);
+      });
   }
 
 

@@ -14,6 +14,7 @@ import Customers from "./components/customers/Customers";
 import Employees from "./components/employee/Employees";
 import EmployeeList from "./components/employee/EmployeeList";
 import EmployeeDetail from "./components/employee/EmployeeDetail";
+import AssignEmployee from "./components/tickets/AssignEmployee";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,21 +22,22 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="tickets" element={<ServiceTickets />}>
-          <Route index element={<TicketsList />} />
-          <Route path=":id" element={<TicketDetails />} />
-          <Route path="create" element={<CreateTicket />} />
+            <Route index element={<TicketsList />} />
+            <Route path=":id" element={<TicketDetails />} />
+            <Route path="assign" element={<AssignEmployee />} />
+            <Route path="create" element={<CreateTicket />} />
         </Route>
-        <Route path="customers" element={<Customers/>} >
-          <Route index element={<CustomerList/>}/>
-          <Route path=":id" element={<CustomerDetail/>}/>
+          <Route path="customers" element={<Customers />}>
+            <Route index element={<CustomerList />} />
+            <Route path=":id" element={<CustomerDetail />} />
+          </Route>
+          <Route path="employees" element={<Employees />}>
+            <Route index element={<EmployeeList />} />
+            <Route path=":id" element={<EmployeeDetail />} />
+          </Route>
         </Route>
-        <Route path="employees" element={<Employees/>}>
-            <Route index element={<EmployeeList/>}/>
-            <Route path=":id" element={<EmployeeDetail/>}/>
-        </Route>
-      </Route>
     </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

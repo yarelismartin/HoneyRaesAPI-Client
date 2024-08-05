@@ -19,6 +19,7 @@ export default function TicketsList() {
 
   }
 
+
   useEffect(() => {
     getServiceTickets().then(setTickets);
   }, []);

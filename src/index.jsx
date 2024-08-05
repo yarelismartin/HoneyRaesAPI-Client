@@ -24,7 +24,7 @@ root.render(
         <Route path="tickets" element={<ServiceTickets />}>
             <Route index element={<TicketsList />} />
             <Route path=":id" element={<TicketDetails />} />
-            <Route path="assign" element={<AssignEmployee />} />
+            <Route path=":id/assign" element={<AssignEmployee />} />
             <Route path="create" element={<CreateTicket />} />
         </Route>
           <Route path="customers" element={<Customers />}>

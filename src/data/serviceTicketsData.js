@@ -80,4 +80,17 @@ export const createServiceTicket = (payload) => new Promise ((resolve, reject) =
   .then(resolve)
   .catch(reject);
 })
+
+export const updateTicket = (id, payload) => new Promise ((resolve, reject) => {
+  return fetch(`/api/servicetickets/${id}`, {
+  method: "PUT", 
+  headers: {
+    'Content-Type': 'application/json',
+  }, 
+  body: JSON.stringify(payload),
+})
+  // .then((response) => response.json())
+  .then(resolve)
+  .catch(reject)
+})
 //export a function here that gets a ticket by id

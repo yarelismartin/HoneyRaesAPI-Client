@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button, Table } from "reactstrap";
 import { getSingleTicket } from "../../data/serviceTicketsData";
-import { Outlet } from "react-router-dom"; // Import Outlet
 
 //import { getServiceTicket } from "../../data/serviceTicketsData";
 
@@ -36,7 +35,14 @@ export default function TicketDetails() {
         </tr>
         <tr>
           <th scope="row">Employee</th>
-          <td>{ticket.employee?.name || <Link to="assign" ><Button style={{backgroundColor: "yellow", color: "black", border: "black 1px solid"}}>Assign Employee</Button></Link>}</td>
+          <td>{ticket.employee?.name || (
+            <Link to={`/tickets/${id}/assign`}>
+              <Button style={{ backgroundColor: "yellow", color: "black", border: "black 1px solid" }}>
+                Assign Employee
+              </Button>
+            </Link>
+          )}
+          </td>
         </tr>
         <tr>
           <th scope="row">Completed?</th>
@@ -44,5 +50,6 @@ export default function TicketDetails() {
         </tr>
       </tbody>
     </Table>
+    
   );
 }
